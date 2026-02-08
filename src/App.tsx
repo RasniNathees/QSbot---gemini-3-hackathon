@@ -2,6 +2,7 @@ import { useEffect, useReducer, useState } from 'react'
 import './App.css'
 import NavBar from '@components/NavBar'
 import { ThemeProvider } from '@/context/ThemeContext'
+import InputSection from './components/InputSection';
 function App() {
   type viewState = 'new' | 'generating' | 'result';
 
@@ -45,6 +46,8 @@ type  AppAction =
             </h2>
             <p className='text-lg text-slate-500 dark:text-slate-400'>  AI estimation with automated rate analysis, vendor recommendations, and detailed quantity take-offs.</p>
           </div>
+          {/* Placeholder for new estimation form */}
+          <InputSection onGenerate={() => dispatch({ type: 'startGeneration' })} />
          </div>
         )}
        
