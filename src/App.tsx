@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from 'react'
+import {  useReducer, useState } from 'react'
 import './App.css'
 import NavBar from '@components/NavBar'
 import { ThemeProvider } from '@/context/ThemeContext'

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import  { useState, useRef, useEffect } from 'react'
 import { AlertTriangle, BadgeCheck, Building2, Calculator, Check, Coins, Edit2, FileText, Globe, Hammer, Info, Mail, MapPin, Phone, PieChart, Plus, PlusCircle, Quote, Save, Star, Trash2, TrendingUp, X } from 'lucide-react'
 
 import type { BOQResponse, Assumption, BOQItem, TradeGroup } from '@/util/types'
