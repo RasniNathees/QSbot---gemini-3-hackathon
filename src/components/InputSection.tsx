@@ -84,7 +84,7 @@ function InputSection({ onGenerate, isLoading }: InputSectionProps) {
         <div className='bg-white dark:bg-slate-800 rounded-2xl shadow-xl shadow-slate-200 dark:shadow-slate-900/20 border border-slate-100 dark:border-slate-700 p-8 mb-10 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-200/60 dark:hover:shadow-slate-900/40'>
             <div className='flex justify-between items-center mb-6'>
                 <h3 className='text-xl font-bold text-slate-800 dark:text-slate-100'>Project Configuration</h3>
-                <span className='text-xs font-medium bg-indigo-50 dark:bg-indigo-900/30 rounded-full px-3 py-1 text-indigo-700 dark:text-indigo-300 bodrer border-indigo-100 dark:border-indigo-900'>AI Powerd</span>
+                <span className='text-xs font-medium bg-indigo-50 dark:bg-indigo-900/30 rounded-full px-3 py-1 text-indigo-700 dark:text-indigo-300 bodrer border-indigo-100 dark:border-indigo-900'>Powerd by Google Gemini</span>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-8'>

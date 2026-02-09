@@ -30,7 +30,7 @@ const fmt = (num: number, currency: string) => {
 // --- Main Export Function ---
 
 export const exportToPDF = (data: BOQResponse) => {
-  const { projectSummary, boqItems, assumptions, recommendedSuppliers, sources } = data;
+  const { projectSummary, boqItems, assumptions, recommendedSuppliers } = data;
   const currency = projectSummary.currency || 'USD';
   
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
@@ -198,11 +198,11 @@ export const exportToPDF = (data: BOQResponse) => {
         lineColor: [203, 213, 225]
     },
     columnStyles: {
-      0: { cellWidth: 10 }, // Ref (Reduced)
+      0: { cellWidth: 14 }, // Ref (Reduced)
       1: { cellWidth: 'auto' }, // Desc (Takes rest)
       2: { cellWidth: 16, halign: 'center' }, // Qty (Reduced)
-      3: { cellWidth: 18, halign: 'right' }, // Mat (Reduced)
-      4: { cellWidth: 18, halign: 'right' }, // Lab (Reduced)
+      3: { cellWidth: 16, halign: 'right' }, // Mat (Reduced)
+      4: { cellWidth: 16, halign: 'right' }, // Lab (Reduced)
       5: { cellWidth: 18, halign: 'right', textColor: [217, 119, 6] }, // O&P (Reduced)
       6: { cellWidth: 20, halign: 'right', fontStyle: 'bold' }, // Rate
       7: { cellWidth: 24, halign: 'right', fontStyle: 'bold', textColor: [79, 70, 229] } // Total
