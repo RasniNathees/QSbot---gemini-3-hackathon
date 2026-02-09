@@ -19,7 +19,7 @@ export interface CountryOption{
 
 export interface RateAnalysis {
     baseMaterial: number;
-    baseLabour: number;
+    baseLabor: number;
     plantAndEquipment: number;
     overheadAndProfit: number;
     narrative: string; // Detailed explanation of the rate analysis
@@ -34,7 +34,7 @@ export interface BOQItem {
     quantityFormula: string; // Formula or method used to calculate quantity
 
     rateMaterial: number;
-    rateLabour: number;
+    rateLabor: number;
     rateAnalysis?: RateAnalysis;
 
     totalRate: number; // Sum of all rates
@@ -95,7 +95,7 @@ export interface BOQResponse{
     assumptions: Assumption[];
     recommendedSuppliers: Supplier[];
     source?: Source[];
-    isInsufficientData?: boolean;
+    isInsufficientInfo?: boolean;
     missingInfoReason?: string;
 }
 
