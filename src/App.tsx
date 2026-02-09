@@ -6,6 +6,7 @@ import InputSection from './components/InputSection';
 import { AlertOctagonIcon, Clock } from 'lucide-react';
 import { type CountryOption, MeasurementStandard, type BOQResponse } from '@/util/types'
 import { generateBOQ } from '@/api/BOQApi'
+import BOQDisplay from './components/BOQDisplay';
 
 function App() {
   type viewState = 'new' | 'generating' | 'result';
@@ -112,7 +113,7 @@ console.log(import.meta.env.GEMINI_API_KEY)
 
             {/* result area */}
             { state.view === 'result'&& data && (
-              <div>sdfsd</div>
+              <BOQDisplay data={data} />
             )}
 
 

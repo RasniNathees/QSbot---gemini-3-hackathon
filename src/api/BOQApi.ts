@@ -264,7 +264,7 @@ export const generateBOQ = async (
 
         const groundingChunks = response.candidates?.[0]?.groundingMetadata?.groundingChunks;
         if (groundingChunks) {
-            data.source = groundingChunks
+            data.sources = groundingChunks
                 .filter((c: any) => c.web && c.web.uri && c.web.title)
                 .map((c: any) => ({
                     title: c.web.title,

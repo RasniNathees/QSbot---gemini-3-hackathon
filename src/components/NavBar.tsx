@@ -24,6 +24,7 @@ const NavBar = (  { view, dispatch }: NavBarProps ) => {
             <div className='flex items-center space-x-4'>
               {view === 'result' && (
                 <button
+                 onClick={() => dispatch({ type: 'newEstimation' })}
                   className='flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-300 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 hover:border-indigo-200 dark:hover:border-indigo-900 transition-all shadow-sm shadow-slate-200 dark:shadow-slate-800'>
                     <PlusCircle className='w-4 h-4' />
                     New Estimation

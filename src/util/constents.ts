@@ -10,6 +10,7 @@ export const Mesurement_Standards: MeasurementStandard[] = [
 ];
 
 export const COUNTRIES: CountryOption[] = [
+    { code: 'LK', name: 'Sri Lanka', currency: 'LKR', currencySymbol: 'LKR' },
     { code: 'UK', name: 'United Kingdom', currency: 'GBP', currencySymbol: '£' },
     { code: 'US', name: 'United States', currency: 'USD', currencySymbol: '$' },
     { code: 'AE', name: 'United Arab Emirates', currency: 'AED', currencySymbol: 'AED' },
@@ -20,7 +21,7 @@ export const COUNTRIES: CountryOption[] = [
     { code: 'SG', name: 'Singapore', currency: 'SGD', currencySymbol: 'S$' },
     { code: 'ZA', name: 'South Africa', currency: 'ZAR', currencySymbol: 'R' },
     { code: 'QA', name: 'Qatar', currency: 'QAR', currencySymbol: 'QAR' },
-    { code: 'LK', name: 'Sri Lanka', currency: 'LKR', currencySymbol: 'LKR' }
+   
 ];
 
 export const sampleProjectDescription = `Project: Luxury Residential Villa (G+1) 

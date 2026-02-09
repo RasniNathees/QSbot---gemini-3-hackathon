@@ -94,7 +94,7 @@ export interface BOQResponse{
     boqItems: TradeGroup[];
     assumptions: Assumption[];
     recommendedSuppliers: Supplier[];
-    source?: Source[];
+    sources?: Source[];
     isInsufficientInfo?: boolean;
     missingInfoReason?: string;
 }
