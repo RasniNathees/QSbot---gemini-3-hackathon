@@ -57,7 +57,6 @@ function App() {
       dispatch({type: 'newEstimation' })
     }
 };
-
   return (
     <>
       <ThemeProvider>

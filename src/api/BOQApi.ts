@@ -2,7 +2,7 @@ import type { BOQResponse, CountryOption, MeasurementStandard } from "@/util/typ
 import { GoogleGenAI } from "@google/genai";
 
 
-const apiKey = 'AIzaSyAJQYhKHaYBmcL1YrdzeAbp1cPT36NLUdI';
+const apiKey =  import.meta.env.VITE_GEMINI_API_KEY ||'';
 
 const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
@@ -40,7 +40,8 @@ const createSystemPrompt = (country: CountryOption): string => {
                     - USE LOCAL MARKET RATES: Use current market rates for ${country.name}. Never convert foreign currency.
                     - TRADE RATES: Use wholesale/contractor rates (not DIY/Retail prices).
                     - LABOR RATES: Use strictly local prevailing wages.
-                    - OVERHEAD & PROFIT: Always include 15–20% if he country is in asia or gulf use 7% O&P in your calculations unless its mentioned.            
+                    - OVERHEAD & PROFIT: Always include 15–20% if he country is in asia or gulf use 7% O&P in your calculations unless its mentioned.
+                    - Donot give 0 for pricing and use best fit for ${country.name}            
             </protocole_2_pricing_strategy>
 
             <protocole_3_quantity_take_off>
