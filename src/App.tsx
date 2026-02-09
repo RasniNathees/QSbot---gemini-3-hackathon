@@ -4,6 +4,9 @@ import NavBar from '@components/NavBar'
 import { ThemeProvider } from '@/context/ThemeContext'
 import InputSection from './components/InputSection';
 import { AlertOctagonIcon, Clock } from 'lucide-react';
+import { type CountryOption, MeasurementStandard, type BOQResponse } from '@/util/types'
+import { generateBOQ } from '@/api/BOQApi'
+
 function App() {
   type viewState = 'new' | 'generating' | 'result';
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +35,28 @@ function App() {
   }
 
   const [state, dispatch] = useReducer(appReducer, { view: 'new' });
-
+  const [data, setData] = useState<BOQResponse | null>(null);
+  const handleGenerate = async (
+    description: string,
+    mesurementStandard: MeasurementStandard,
+    coutntry: CountryOption,
+    file?: { mimeType: string, data: string }
+  ) => {
+    setError(null);
+    dispatch({ type: 'startGeneration' });
+    setData(null);
+    try {
+      const result = await generateBOQ(description, mesurementStandard, coutntry, file);
+      setData(result);
+      dispatch({ type: 'finishGeneration' })
+    } catch (err: any) {
+      console.error(err);
+      const msg = err.message || "An unexpected error occurred while contacting the AI service.";
+      setError(msg.replace("GoogleGenAIError:", "").trim());
+      dispatch({type: 'newEstimation' })
+    }
+};
+console.log(import.meta.env.GEMINI_API_KEY)
   return (
     <>
       <ThemeProvider>
@@ -50,7 +74,7 @@ function App() {
                   <p className='text-lg text-slate-500 dark:text-slate-400'>  AI estimation with automated rate analysis, vendor recommendations, and detailed quantity take-offs.</p>
                 </div>
                 {/* Placeholder for new estimation form */}
-                <InputSection onGenerate={() => dispatch({ type: 'startGeneration' })} isLoading={false} />
+                <InputSection onGenerate={handleGenerate} isLoading={false} />
               </div>
             )}
             {/* Loading State */}
@@ -75,7 +99,8 @@ function App() {
                   </div>
                   <div>
                     <h3 className={`text-lg font-bold ${error.includes('Quota') ? 'text-amber-900 dark:text-amber-200' : 'text-red-900 dark:text-red-200'}`}>
-                      {error.includes('Quota') ? 'API Quota Exceeded' : 'Generation Failed'}
+                      {error.includes('Quota') ? 'API Quota Exceeded' : 'Generation Failed' }
+                   
                     </h3>
                     <p className={`${error.includes('Quota') ? 'text-amber-700 dark:text-amber-200' : 'text-red-700 dark:text-red-200'}`}>
                       {error.replace(/\*\*|⚠️/g, '')}
@@ -83,6 +108,11 @@ function App() {
                   </div>
                 </div>
               </div>
+            )}
+
+            {/* result area */}
+            { state.view === 'result'&& data && (
+              <div>sdfsd</div>
             )}
 
 

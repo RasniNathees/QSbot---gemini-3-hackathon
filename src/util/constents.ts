@@ -91,3 +91,4 @@ export const mockBOQResponse = {
         { category: "General", text: "Site is accessible." }
     ]
 }
+
