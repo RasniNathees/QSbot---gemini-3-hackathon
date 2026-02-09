@@ -57,7 +57,7 @@ function App() {
       dispatch({type: 'newEstimation' })
     }
 };
-console.log(import.meta.env.GEMINI_API_KEY)
+
   return (
     <>
       <ThemeProvider>
@@ -114,14 +114,16 @@ console.log(import.meta.env.GEMINI_API_KEY)
             {/* result area */}
             { state.view === 'result'&& data && (
               <BOQDisplay data={data} />
+              
             )}
-
+{}
 
           </main>
 
         </div>
       </ThemeProvider>
     </>
+    
   )
 }
 
